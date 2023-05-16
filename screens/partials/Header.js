@@ -7,16 +7,23 @@ const Header = () => {
             <View className="flex flex-col">
                 <View className="flex-row items-center justify-between">
                     <Text className="font-black text-3xl">Bonjour,</Text>
-                    <TouchableOpacity>
-                        <Icons.AdjustmentsVerticalIcon
-                            className="color-purple-400"
-                        />
-                    </TouchableOpacity>
+                    <View className="flex flex-row items-center gap-x-4">
+                        <TouchableOpacity>
+                            <Icons.BellIcon
+                                className="color-purple-400"
+                            />
+                        </TouchableOpacity>
+                        <TouchableOpacity>
+                            <Icons.AdjustmentsVerticalIcon
+                                className="color-purple-400"
+                            />
+                        </TouchableOpacity>
+                    </View>
                 </View>
                 <Text className="font-thin text-md">Plus aucune recette ne vous sera secrète</Text>
             </View>
             <View className="flex relative items-center flex-row gap-x-2">
-                <Icons.MagnifyingGlassIcon 
+                <Icons.MagnifyingGlassIcon
                     className="absolute left-2 w-10 h-10 color-purple-300 z-10"
                 />
                 <TextInput

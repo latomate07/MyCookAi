@@ -56,20 +56,19 @@ const defaultData = [
 
 const PopularRecipe = () => {
     return (
-        <ScrollView horizontal showsHorizontalScrollIndicator="false">
-            <FlatList
-                data={defaultData}
-                renderItem={({ item }) => {
-                    return (
-                        <TouchableOpacity>
-                            <Recipe recipeName={item.nom} />
-                        </TouchableOpacity>
-                    )
-                }}
-                keyExtractor={item => item.id}
-                horizontal
-            />
-        </ScrollView>
+        <FlatList
+            data={defaultData}
+            renderItem={({ item }) => {
+                return (
+                    <TouchableOpacity>
+                        <Recipe recipeName={item.nom} />
+                    </TouchableOpacity>
+                )
+            }}
+            keyExtractor={item => item.id}
+            horizontal
+            showsHorizontalScrollIndicator="false"
+        />
     );
 }
 
