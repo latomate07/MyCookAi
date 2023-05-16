@@ -1,0 +1,52 @@
+import { StatusBar } from 'expo-status-bar';
+import { Text, View, TextInput, Pressable, ScrollView, SafeAreaView, ActivityIndicator } from 'react-native';
+import PromptManager from './app/PromptManager';
+import React, { useState } from 'react';
+import RecipeList from './components/RecipeList';
+import PopularRecipe from './components/PopularRecipe';
+
+export default function App() {
+  const [wishRecipe, setWishRecipe] = useState('Gâteau au chocolat');
+  const [isLoading, setIsLoading] = useState(false);
+  const [showRecipeList, setShowRecipeList] = useState(false);
+
+  let recipes = {};
+  const generateRecipes = async () => {
+    setIsLoading(true);
+    recipes = await PromptManager.getRecipes(wishRecipe);
+    setIsLoading(false);
+  }
+
+  return (
+    <SafeAreaView className="flex flex-col gap-y-5 text-center justify-between mx-4 my-auto">
+      {isLoading ? (
+        <View className="mx-auto flex flex-col gap-y-4">
+          <ActivityIndicator size="large" animating={isLoading} />
+          <Text className="text-center break-words">
+            J'organise tout ce qu'il faut pour votre :
+            <Text className="text-center font-black">
+              {wishRecipe}
+            </Text>
+          </Text>
+        </View>
+      ) : (
+        <View className="my-auto gap-y-5">
+          <Text className="text-xl font-black text-center">Yo, on cuisine quoi aujourd'hui ?</Text>
+          <TextInput
+            onChangeText={setWishRecipe}
+            value={wishRecipe}
+            placeholder='Entrez une recette ici...'
+            className="mx-auto bg-gray-200 rounded-xl p-4 w-4/5"
+          />
+          <Pressable onPressIn={generateRecipes} className="mx-auto p-4 bg-slate-900 rounded-full">
+            <Text className="text-white">
+              Générer la recette
+            </Text>
+          </Pressable>
+          <RecipeList data={recipes} />
+          <StatusBar style="auto" />
+        </View>
+      )}
+    </SafeAreaView>
+  );
+}
