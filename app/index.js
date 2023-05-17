@@ -1,10 +1,10 @@
-import { View, Text, TextInput } from "react-native";
+import { View, Text, TextInput, SafeAreaView } from "react-native";
 import AppLayout from "./layouts/AppLayout";
 import PopularRecipe from "../components/PopularRecipe";
 import RecipeByCountry from "../components/RecipeByCountry";
 import * as Icons from "react-native-heroicons/outline";
 
-const Welcome = () => {
+const Home = () => {
     return (
         <AppLayout>
             <View className="flex flex-col gap-y-10 px-4 mt-1">
@@ -47,4 +47,4 @@ const Welcome = () => {
         </AppLayout>
     );
 }
-export default Welcome;
+export default Home;

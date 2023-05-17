@@ -8,7 +8,7 @@ const RecipeByCountry = () => {
             <FlatList
                 data={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
                 renderItem={({ item }, index) => (
-                    <TouchableOpacity className="h-56 rounded-xl w-[40vw] mx-2 shadow-sm">
+                    <TouchableOpacity className="bg-white h-56 rounded-xl w-[40vw] mx-2 shadow-sm shadow-gray-200">
                         <ImageBackground className="h-full w-full" source={{ uri: "https://picsum.photos/800/400?random=1" }}>
                             <View className="h-2/5 bg-black/10 mt-auto rounded-t-xl">
                                 <Text className="p-2 text-white">Découvrez les spécialités</Text>
