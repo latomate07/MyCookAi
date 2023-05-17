@@ -1,6 +1,7 @@
 import { View, Text, TextInput } from "react-native";
 import AppLayout from "./layouts/AppLayout";
 import PopularRecipe from "../components/PopularRecipe";
+import RecipeByCountry from "../components/RecipeByCountry";
 import * as Icons from "react-native-heroicons/outline";
 
 const Welcome = () => {
@@ -41,6 +42,7 @@ const Welcome = () => {
                         </Text>
                     </View>
                 </View>
+                <RecipeByCountry />
             </View>
         </AppLayout>
     );

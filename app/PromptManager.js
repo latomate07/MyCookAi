@@ -1,7 +1,7 @@
 /**
  * Store application openai secret key
  */
-const apiKey = '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';
+const apiKey = process.env.OPENAI_API_KEY;
 const endPoint = 'https://api.openai.com/v1/chat/completions';
 
 /**
